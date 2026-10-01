@@ -1,0 +1,73 @@
+{
+    /*
+    list of airports to test against
+    leaving room in data struct to allow for multiple runways
+    ex. can go to airnav.com to find all this manually
+    
+    can write an automation to inject more at a mass scale later,
+    just match this struct
+    
+    (if wanting to make this efficient, package into a 2d tensor [airports])
+    
+    attributes (all lowercase):
+    icao: <str> international airport code
+    alias: <str> optional human readable name
+    lat: <float> decimal latitude
+    lon: <float> decimal longitude
+    elev: <float> surveyed elevation in meters
+    rwys: [
+        .. note: since all runways have two directions, only map the lowest number
+        runways will always be listed with longest runway descending
+        no helipads
+        {dir: <str>, len: <int> meters}
+    ]
+    */
+    
+    airports: [
+        /*
+        { // empty template
+            icao: "",
+            lat: ,
+            lon: ,
+            elev: ,
+            rwys: [
+                { dir: "", len:  },
+            ],
+        },
+        */
+        { // salt lake city, UT, USA
+            icao: "kslc",
+            alias: "SLC",
+            lat: 40.7883933,
+            lon: -111.9777733,
+            elev: 1289.6,
+            rwys: [
+                { dir: "16l", len: 3658 },
+                { dir: "16r", len: 3658 },
+                { dir: "17", len: 2925 },
+                { dir: "14", len: 1491 },
+            ],
+        },
+        { // provo, UT, USA
+            icao: "kpvu",
+            alias: "Provo",
+            lat: 40.2191667,
+            lon: -111.7233611,
+            elev: 1370.7,
+            rwys: [
+                { dir: "13", len: 2622 },
+                { dir: "18", len: 2020 },
+            ],
+        },
+        { // paro, Bhutan
+            icao: "vqpr",
+            alias: "Bhutan",
+            lat: 27.408819,
+            lon: 89.420581,
+            elev: 2235,
+            rwys: [
+                { dir: "15", len: 2265 },
+            ],
+        },
+    ],
+}

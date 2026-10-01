@@ -1,0 +1,27 @@
+~~ FAA DOCUMENT ~~
+find the airframe's runway characteristics by typing
+AIRCRAFT CHARACTERISTICS - AIRPORT AND MAINTENANCE PLANNING {make model}
+in section 3-3 "take off weight limitations" (standardized for all models) should contain the graphs for all different variations (by engine/capacity)
+looking for the ISA and ISA+15 for each model
+
+~~ DATA SCRAPE ~~
+each chart should have multiple elevation lines for runway length vs takeoff weight
+if the y-axis is takeoff weight, we will eventually have to invert it (y-axis should be runway length)
+for the cyan and green lines you may need to increase contrast using curves in photoshop
+use WebPlotDigitizer from https://web.eecs.utk.edu/~dcostine/personal/PowerDeviceLib/DigiTest/index.html
+use 5px 5px for the auto mode algorithm 
+
+put it into csv_util.html 
+if needs inverting toggle so (airbus does, boeing does not)
+csv output can output a desmos plottable
+json5 output to put into pre_curve.json5 >> .models.<model>.e<elevation in ft>.data
+if new model, add new and make it look like existing data. just need model name as a key, and .mfg for manufacturer and .mtow for max takeoff weight (metric tons)
+.data should look like [[170, 1.4],[172.345, 1.684513],...], (2d array of size [data pts, 2:x,y])
+
+~~ SANITY CHECK ~~
+!! PLOT ON DESMOS EVERY TIME !!
+
+
+~~ AIR DENSITY ~~
+currently no automated pipeline, figure out the air density using density.py via the elevation/corresponding ISA temp. that will be the new graph's x point. 
+the y data point will be its maximum take-off weight (mtow) from that prior curve fit if it has one (ex. ln negative does not exist). 

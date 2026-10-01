@@ -1,0 +1,8 @@
+[project]
+name = "World Runways / Project Warm-wing"
+version = "1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "json5>=0.12.0",
+    "torch>=2.12.0",
+]
