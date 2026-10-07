@@ -1,5 +1,5 @@
 # GLOBAL WARM WING
-!(readme_imgs/tyl.gif)
+![](readme_imgs/tyl.gif)
 If only the Wright brothers could see us flying giant tylenols in the sky filled with people!
 
 Airplanes need thick air to fly. Pilots love cold weather because it makes takeoff a breeze due to the denser air. Airlines hate hot weather and high altitudes because it means the planes can't be absolutely stuffed with revenue. This is because of thinner air.
