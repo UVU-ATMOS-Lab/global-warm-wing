@@ -20,12 +20,13 @@ The major complication is an FAA standard called "ISA". Although the graphs of a
 ISA is a graph which plots the amount of weight you can add to a plane vs its runway length requirement (Airbus swaps the x-y axis making it "funner" to work with). Since this project only deals with 100% MTOW (max take-off weight), only MTOW data points can be used to recreate an aiframes take-off characteristics vs air density. The other pinch point is that the ISA graphs list altitudes as separate lines (separated by 2000 ft of elevation), and each line of elevation has its own "standard temperature." 
 
 Here is what they are:
-elev (1k ft):   |   standard temp (C)
-0                   15
-2                   11.04
-4                    7.08
-6                    3.12
-8                   -0.84
+| elev (1k ft) | standard temp (C) |
+|-------------:|------------------:|
+| 0            | 15                |
+| 2            | 11.04             |
+| 4            | 7.08              |
+| 6            | 3.12              |
+| 8            | -0.84             |
 
 To make matters worse, there is also an ISA+15 chart which lists the same as above but with the standard temps having +15 C to them. 
 
