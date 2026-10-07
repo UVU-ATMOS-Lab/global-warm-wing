@@ -3,8 +3,9 @@
     per model "airframe" of airplane:
     plot of x: air density (kg/m^3) to y: runway length needed
     
-    formula: a * ln(x - k) + o
-    a, k, o are all coefficients
+    formula: runwayLength = -(h / airDensity) * ln(1 - (g / airDensity))
+    (see derived equation @ Dustins office)
+    h, g are coefficients
     */
     
     models: [
@@ -12,9 +13,8 @@
             model: "a330-200",
             mfg: "airbus",
             mtow: 242,
-            a: -.304,
-            k: 1.0906,
-            o: 2.235,
+            h: 3.2,
+            g: .8,
         },
     ],
 }

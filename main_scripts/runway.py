@@ -1,11 +1,18 @@
 import json5
 import math
 from typing import Any
-from warm_wing.src.python.dryAirDensity import dryAirDensity
+
+# pathing
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from src.dependencies import *
 
 
+RELATIVE_PATH = "warm_wing/input/"
 def loadJson5(path: str) -> dict[str, Any]:
-    with open(path, "r") as f:
+    """path is relative to warm_wing/input/"""
+    with open(RELATIVE_PATH + path, "r") as f:
         return json5.load(f)
         
         
@@ -24,16 +31,19 @@ def runwayLength(
         return -1
     
     dn = dryAirDensity(elevationMeters, tempCelsius)
-    print(f"        {dn:.3f} kg/m^3 air density with provided temp {tempCelsius} C")
+    print(f"        {dn:.3f} kg/m^3 air density with temp {tempCelsius} C && elevation {elevationMeters} m")
+
+    # formula: runwayLength = -(h / airDensity) * ln(1 - (g / airDensity))
     
-    # check validity (k must > dn so log(not negative))
-    logValidity = dn - airframe["k"]
-    if logValidity <= 0: # log error, cannot takeoff
+    # check validity ln(must > 0), so ln(1-x must < 1), so g must < airDensity
+    # otherwise ln might have invalid input (invalid here means infinite runway)
+    logValidity = airframe["g"] < dn
+    if not logValidity: # lg error, cannot takeoff
         return math.inf
     
     # python math.log same as ln()
     # this formula is listed in airframes.json5
-    return 1000 * ((airframe["a"] * math.log(logValidity)) + airframe["o"])
+    return 1000 * (0 - (airframe["h"] / dn) * math.log(1 - (airframe["g"] / dn)))
     
     
 def listAllAirframes() -> None:
