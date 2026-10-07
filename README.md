@@ -1,5 +1,6 @@
 # GLOBAL WARM WING
 ![](readme_imgs/tyl.JPG)
+
 If only the Wright brothers could see us flying giant tylenols in the sky filled with people!
 
 Airplanes need thick air to fly. Pilots love cold weather because it makes takeoff a breeze due to the denser air. Airlines hate hot weather and high altitudes because it means the planes can't be absolutely stuffed with revenue. This is because of thinner air.
@@ -33,12 +34,14 @@ So how to unpack ISA? We find the given air density for that specific combinatio
 
 For example: 
 ![](readme_imgs/1.JPG)
+
 reference:
 https://www.desmos.com/calculator/hqckxhijut
 The 100% MTOW of an Airbus a330-200 is 242 thousand kg. It has a data point for the 2000 ft. altitude line that on the ISA chart (Airbus has x-y axes flipped remember) which corresponds to 3283 meters of runway requirement. That is the new graph's y value. It's x value is whatever air density that ISA combination is, which is air_density(2000 ft. converted to meters, 11.04 celcius) => 1.1549 kg/m^3.
 
 new graph: 
 ![](readme_imgs/2.JPG)
+
 https://www.desmos.com/calculator/iuttzfxgla
 
 # Complication number 2
